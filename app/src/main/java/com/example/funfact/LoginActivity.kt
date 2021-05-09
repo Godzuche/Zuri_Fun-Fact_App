@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.funfact.databinding.ActivityLoginBinding
-import java.util.*
 
 class LoginActivity : AppCompatActivity() {
 
@@ -27,17 +26,17 @@ class LoginActivity : AppCompatActivity() {
             if(binding?.emailEditText?.text.toString().isEmpty() || binding?.passwordEditText?.text.toString().isEmpty()) {
                 Toast.makeText(this, "Email or Password is not provided", Toast.LENGTH_LONG).show()
             } else {
-                if(binding?.emailEditText?.text.toString().toLowerCase(Locale.ROOT) == "godzuche@zuri.com" && binding?.passwordEditText?.text.toString().toLowerCase(Locale.ROOT) == "zuri222") {
+                if(binding?.emailEditText?.text.toString().lowercase() == "godzuche@zuri.com" && binding?.passwordEditText?.text.toString() == "zuri222") {
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                 } else {
-                    Toast.makeText(this, "Wrong Email or Password: Use Godxuche@zuri.com : Password = zuri222", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Wrong Email or Password: Use Godzuche@zuri.com : Password = zuri222", Toast.LENGTH_LONG).show()
                 }
             }
         }
 
         binding?.forgotPasswordButton?.setOnClickListener {
-            if (binding?.emailEditText?.text.toString().toLowerCase(Locale.ROOT) != "godzuche@zuri.com") {
+            if (binding?.emailEditText?.text.toString().lowercase() != "godzuche@zuri.com") {
                 Toast.makeText(this, "Use Godzuche@zuri.com : Password = zuri222" , Toast.LENGTH_LONG).show()
             } else {
                 Toast.makeText(this, "Password = zuri222", Toast.LENGTH_LONG).show()
