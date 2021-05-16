@@ -9,6 +9,7 @@ class DetailActivity : AppCompatActivity() {
     private var logo = 0
     private var name: String? = null
     private var detail: String? = null
+    private var about: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
@@ -17,6 +18,7 @@ class DetailActivity : AppCompatActivity() {
         logo = intent.getIntExtra(FactAdapter.LOGO_EXTRAS, 0)
         name = intent.getStringExtra(FactAdapter.NAME_EXTRAS)
         detail = intent.getStringExtra(FactAdapter.FACT_EXTRAS)
+        about = intent.getStringExtra(FactAdapter.ABOUT_EXTRAS)
 
         setupFactDetail()
     }
@@ -24,6 +26,7 @@ class DetailActivity : AppCompatActivity() {
     private fun setupFactDetail() {
         binding?.detailLv?.text = detail
         binding?.logoLv?.setImageResource(logo)
+        binding?.secondaryTextLv?.text = about
         title = name
     }
 
